@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polycom Myanmar | ICT & ELV Consultation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <img src="images/logo.png" alt="Polycom Myanmar Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1 class="logo-title">Polycom Myanmar</h1>
+                        <p class="logo-subtitle">ICT & ELV Consultation</p>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-box">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#services" class="nav-link dropdown-toggle">Our Core Service <span class="arrow">▼</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#services">ELV Solution</a></li>
+                                <li><a href="#services">ICT Consultant & Solution</a></li>
+                                <li><a href="#services">Clouds Solution</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-slider">
+                <div class="slide active" style="background-image: url('images/cloud.png')"></div>
+                <div class="slide" style="background-image: url('images/Consultant.png')"></div>
+                <div class="slide" style="background-image: url('images/ELV.png')"></div>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">ICT & ELV Consultant</h1>
+                <p class="hero-subtitle">Transforming Infrastructure Through Intelligent ICT & ELV Solutions</p>
+                <a href="consultation.html" class="cta-btn">Book Your Free Consultation</a>
+            </div>
+            
+            <!-- Carousel Arrows -->
+            <button class="carousel-arrow prev-arrow" id="prevArrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="carousel-arrow next-arrow" id="nextArrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+            
+            <!-- Carousel Dots -->
+            <div class="carousel-dots" id="carouselDots">
+                <button class="dot active" data-index="0"></button>
+                <button class="dot" data-index="1"></button>
+                <button class="dot" data-index="2"></button>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2 class="section-title">DESIGNING TOMORROW'S DIGITAL INFRASTRUCTURE TODAY</h2>
+                        <p class="about-paragraph">We help organizations to accelerate "Business Success" Through Technology, Innovation, and Engineering Excellence.</p>
+                        <p class="about-paragraph">From strategic planning and architecture design to deployment, integration, and operational support, we deliver scalable, secure, and future-ready solutions that enable businesses to accelerate growth, improve operational efficiency, and embrace digital innovation with confidence.</p>
+                        <a href="#about" class="about-btn">About Us</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/intro.jpg" alt="Introduction Photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <img src="images/strategy.jpg" alt="Strategy">
+                    </div>
+                    <div class="stat-card">
+                        <img src="images/teamwork.jpg" alt="Teamwork">
+                    </div>
+                    <div class="stat-card">
+                        <img src="images/technology.jpg" alt="Technology">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">OUR CORE SERVICES</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/ELV solution.jpg" alt="Cloud Technology">
+                            <div class="service-overlay">
+                                <h3 class="service-title">ELV</h3>
+                            </div>
+                        </div>
+                        <a href="#services" class="service-btn">Find out more</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/ICT consultant.jpg" alt="Digital Technology">
+                            <div class="service-overlay">
+                                <h3 class="service-title">ICT</h3>
+                            </div>
+                        </div>
+                        <a href="#services" class="service-btn">Find out more</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/Cloud Solution.jpg" alt="Managed IT">
+                            <div class="service-overlay">
+                                <h3 class="service-title">Cloud</h3>
+                            </div>
+                        </div>
+                        <a href="#services" class="service-btn">Find out more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-cta">
+            <div class="contact-cta-bg">
+                <div class="container">
+                    <div class="contact-cta-content">
+                        <h2 class="contact-cta-title">Get in touch</h2>
+                        <p class="contact-cta-text">Contact us to find out more about how we can help or to discuss a project</p>
+                        <a href="consultation.html" class="contact-cta-btn">Book a free consultation</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="fixed-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Polycom Myanmar Logo" class="footer-logo-img">
+                        <div class="footer-logo-text">
+                            <h2 class="footer-logo-title">Polycom Myanmar</h2>
+                            <p class="footer-logo-subtitle">ICT & ELV Consultation</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">Your trusted partner for ICT & ELV solutions.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">ELV Solution</a></li>
+                        <li><a href="#services">ICT Consultant</a></li>
+                        <li><a href="#services">Clouds Solution</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>📍 No.9, 6th Floor,</li>
+                        <li>Mahar Zaya Street,</li>
+                        <li>Pazundaung Township,</li>
+                        <li>Yangon. Myanmar.</li>
+                        <li class="contact-separator"></li>
+                        <li>📧 info@polycom-mm.com</li>
+                        <li class="contact-separator"></li>
+                        <li>📞 09-252266968</li>
+                        <li>📞 09-944567200</li>
+                        <li>📞 09-944567600</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Polycom Myanmar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
