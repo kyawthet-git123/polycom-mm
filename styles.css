@@ -50,7 +50,7 @@ body {
     padding: 12px 15px;
     position: relative;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .logo {
@@ -300,7 +300,8 @@ body {
     transition: transform 0.3s ease;
 }
 
-.dropdown:hover .dropdown-toggle .arrow {
+.dropdown:hover .dropdown-toggle .arrow,
+.dropdown.active .dropdown-toggle .arrow {
     transform: rotate(180deg);
 }
 
@@ -318,9 +319,11 @@ body {
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
+    z-index: 10002;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -341,23 +344,7 @@ body {
     padding-left: 30px;
 }
 
-.mobile-menu-btn {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-}
 
-.mobile-menu-btn span {
-    width: 25px;
-    height: 3px;
-    background: var(--text-light);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
 
 .hero {
     position: relative;
