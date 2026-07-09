@@ -237,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    const desktopDropdownToggles = document.querySelectorAll('.dropdown-toggle');
     
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => {
@@ -250,6 +251,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenuBtn.classList.remove('active');
                 mobileMenu.classList.remove('active');
             }
+            
+            // Close desktop dropdowns when clicking outside
+            desktopDropdownToggles.forEach(toggle => {
+                const parentDropdown = toggle.closest('.dropdown');
+                if (!parentDropdown.contains(e.target)) {
+                    parentDropdown.classList.remove('active');
+                }
+            });
         });
         
         // Close menu when clicking a link
@@ -269,5 +278,154 @@ document.addEventListener('DOMContentLoaded', function() {
             const parentDropdown = toggle.closest('.mobile-dropdown');
             parentDropdown.classList.toggle('active');
         });
+    });
+    
+    // Desktop dropdown toggle (click support)
+    desktopDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            const parentDropdown = toggle.closest('.dropdown');
+            // Close other open dropdowns
+            desktopDropdownToggles.forEach(otherToggle => {
+                const otherDropdown = otherToggle.closest('.dropdown');
+                if (otherDropdown !== parentDropdown) {
+                    otherDropdown.classList.remove('active');
+                }
+            });
+            parentDropdown.classList.toggle('active');
+        });
+    });
+
+    // ==========================================
+    // ELV CAROUSELS
+    // ==========================================
+    const elvCarousels = document.querySelectorAll('.elv-carousel');
+    
+    elvCarousels.forEach(carousel => {
+        const track = carousel.querySelector('.elv-carousel-track');
+        const slides = carousel.querySelectorAll('.elv-carousel-slide');
+        const prevBtn = carousel.querySelector('.elv-carousel-prev');
+        const nextBtn = carousel.querySelector('.elv-carousel-next');
+        const dotsContainer = carousel.querySelector('.elv-carousel-dots');
+        
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let autoSlideInterval;
+        const AUTO_SLIDE_DELAY = 3000; // 3 seconds
+        
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('elv-carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                resetAutoSlide();
+                goToSlide(i);
+            });
+            dotsContainer.appendChild(dot);
+        }
+        
+        const dots = carousel.querySelectorAll('.elv-carousel-dot');
+        
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        function goToSlide(index) {
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+            updateCarousel();
+        }
+        
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+        
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+        
+        function startAutoSlide() {
+            if (autoSlideInterval) clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextSlide, AUTO_SLIDE_DELAY);
+        }
+        
+        function resetAutoSlide() {
+            startAutoSlide();
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            resetAutoSlide();
+            prevSlide();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            resetAutoSlide();
+            nextSlide();
+        });
+        
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                resetAutoSlide();
+                nextSlide();
+            } else if (touchEndX > touchStartX + swipeThreshold) {
+                resetAutoSlide();
+                prevSlide();
+            }
+        }
+        
+        // Mouse drag support
+        let isMouseDragging = false;
+        let mouseStartX = 0;
+        
+        carousel.addEventListener('mousedown', (e) => {
+            isMouseDragging = true;
+            mouseStartX = e.screenX;
+        });
+        
+        carousel.addEventListener('mouseup', (e) => {
+            if (isMouseDragging) {
+                const mouseEndX = e.screenX;
+                const dragThreshold = 50;
+                if (mouseEndX < mouseStartX - dragThreshold) {
+                    resetAutoSlide();
+                    nextSlide();
+                } else if (mouseEndX > mouseStartX + dragThreshold) {
+                    resetAutoSlide();
+                    prevSlide();
+                }
+            }
+            isMouseDragging = false;
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            isMouseDragging = false;
+        });
+        
+        // Start auto sliding
+        if (totalSlides > 1) {
+            startAutoSlide();
+        }
     });
 });
