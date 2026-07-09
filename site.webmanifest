@@ -1,0 +1,19 @@
+{
+    "name": "Polycom Myanmar",
+    "short_name": "Polycom",
+    "icons": [
+        {
+            "src": "images/consolelogo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/consolelogo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#1a1a4a",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
